@@ -1,0 +1,10 @@
+.footer_section {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+.footer_section p{
+    font-size: 14px;
+    color: #99A1B7;
+}

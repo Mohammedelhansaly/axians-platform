@@ -1,0 +1,116 @@
+.Create_equipement{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #11111170;
+    z-index: 9999;
+
+}
+.Create_equipement .form-item{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 30px;
+    width: 700px;
+    background-color: #fff;
+    border-radius: .475rem;
+    animation:  menu-sub-dropdown-animation-fade-in .3s ease 1,menu-sub-dropdown-animation-move-up .3s ease 1;
+
+}
+.Create_equipement .form-item .header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px ;
+    border-bottom: 1px solid #99A1B7;
+}
+.Create_equipement .form-item .header h3{
+    color: #2e2e2e;
+    font-weight: 500;
+}
+.Create_equipement .form-item .header .close{
+    cursor: pointer;
+}
+.Create_equipement .form-item .bottom {
+    margin-top: 40px;
+}
+.Create_equipement .form-item .bottom .form .field-line{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.Create_equipement .form-item .bottom .form .input-field{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.Create_equipement .form-item .bottom .form .input-field label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+.Create_equipement .form-item .bottom .form .input-field label span{
+    font-size: 10px ;
+    color: red;
+}
+.Create_equipement .form-item .bottom .form .input-field input,.Create_equipement .form-item .bottom .form .input-field select{
+    font-size: 13px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    width: 100%;
+    height: 42px;
+    margin: 8px 0;
+}
+.Create_equipement .form-item .bottom .form .input-field textarea{
+    font-size: 13px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    padding: 10px 15px;
+    width: 100%;
+    margin: 8px 0;
+}
+.Create_equipement .form-item .bottom .form button{
+    margin-top: 30px;
+}
+
+@keyframes menu-sub-dropdown-animation-fade-in {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes menu-sub-dropdown-animation-move-up {
+    from {
+        margin-top: .75rem
+    }
+
+    to {
+        margin-top: 0
+    }
+}
+
+@keyframes menu-sub-dropdown-animation-move-down {
+    from {
+        margin-bottom: .75rem
+    }
+
+    to {
+        margin-bottom: 0
+    }
+}

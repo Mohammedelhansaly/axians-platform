@@ -1,0 +1,168 @@
+.listProject_section .content .total{
+    margin-bottom: 40px;
+}
+.listProject_section .content .total .col{
+    width: 100%;
+    padding: 40px 30px ;
+    height: 250px;
+    background-color: #fff;
+    border-radius: 0.475rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.03);
+}
+.listProject_section .content .total .col:nth-child(1){
+    background-image: url('../../../assets/Images/patterns/header-bg-dark.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+
+.listProject_section .content .total .col p{
+    color: #99A1B7;
+    font-weight: 600;
+}
+.listProject_section .content .total .col h2{
+    font-size: 50px;
+   color: #2e2e2e;
+    font-weight: 500;
+}
+.listProject_section .content .total .col:nth-child(1) h2{
+    color: #fff;
+}
+.listProject_section .head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.listProject_section .head .title h2{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.listProject_section .head .title h2 span{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #99A1B7;
+    margin-left: 10px;
+}
+
+
+
+.listProject_section .content .projects-items .col{
+    position: relative;
+    width: 100%;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 0.475rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid #fff;
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.03);
+    transition: .3s ease;
+}
+
+.listProject_section .content .row3 .col h2{
+    width: 80%;
+    color: #2e2e2e;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.listProject_section .content .row3 .col p{
+    color: #99A1B7;
+    font-size: 1.15rem;
+    font-weight: 500;
+}
+.listProject_section .content .row3 .col .info{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 20px;
+}
+.listProject_section .content .row3 .col .info div{
+    padding: 8px 10px;
+    border: 1px dashed #a7a8ad;
+    border-radius: .475rem;
+}
+.listProject_section .content .row3 .col .info div p{
+    color: #B5B7C8;
+    font-size: .9rem;
+    font-weight: 500;
+}
+.listProject_section .content .row3 .col .action{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    top: 30px;
+    right: 30px;
+}
+
+.listProject_section .content .row3 .col .action span{
+    width: 35px;
+    height: 35px;
+    border-radius: .475rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    color: #a20067;
+    outline: none;
+    border: none;
+    cursor: pointer;   
+    transition: .3s ease;
+     background-color: #8686861a;
+}
+.listProject_section .content .row3 .col .action span i{
+    font-size: 14px;
+}
+.listProject_section .content .row3 .col .action span:hover{
+    background-color: #8686865e;
+}
+
+.foot{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+.counter p{
+    color: #383838;
+}
+.pagination{    
+    color: #383838;
+}
+
+.pagination ul{
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+}
+.pagination ul li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+}
+.pagination ul li.active{
+    background-color: #a20067;
+    color: #fff;
+}
+.pagination ul li a:hover{
+    color: #a20067;
+}
+.disabled-button {
+    pointer-events: none; 
+    opacity: 0.5;
+    cursor: not-allowed; 
+  }
+

@@ -1,0 +1,35 @@
+.session_expired{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #11111170;
+    z-index: 9999;
+}
+.session_expired .content{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 30px;
+    width: 450px;
+    background-color: #fff;
+    border-radius: .475rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.session_expired .content img{
+    width: 80px;
+    margin-bottom: 20px;
+}
+.session_expired .content p{
+    margin-bottom: 30px;
+}
+.session_expired .content .log{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}

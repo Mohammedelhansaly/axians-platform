@@ -1,0 +1,160 @@
+.listeEquipement_section .content .top{
+    /* background-image: url('../../../assets/Images/Svg/svg-hero-pattern.svg'); */
+    width: 100%;
+    padding: 60px 30px ;
+    height: 250px;
+    background-color: #fff;
+    border-radius: 0.475rem;
+   display: flex;
+   justify-content: space-between;
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.03);
+}
+
+.listeEquipement_section .content .top .left div{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 20px;
+}
+.listeEquipement_section .content .top .left span{
+    width: 100px;
+    color: #99A1B7;
+}
+.listeEquipement_section .content .top .left h2{
+    color: #2E2E2e;
+    font-size: 25px;
+    font-weight: 500;
+}
+.listeEquipement_section .content .top .left h4{
+    color: #2E2E2e;
+    font-size: 20px;
+    font-weight: 500;
+}
+.listeEquipement_section .content .top .left p{
+    width: 400px;
+    color: #5f5e5e;
+   
+}
+.listeEquipement_section .content .top .right button{
+margin-right: 10px;
+}
+
+/* .listeEquipement_section .content .top .right input[type="file"] {
+    display: none;
+  } */
+  
+  
+.listeEquipement_section .bottom .head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+.listeEquipement_section .bottom .head h2{
+    font-size: 20px;
+    font-weight: 500;
+    color: #2E2E2e;
+    margin-right: 30px;
+}
+.listeEquipement_section .bottom .head .search-bar{
+    width: 400px;
+    border-radius: .475rem;
+    padding: 6px;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    color: #99A1B7;
+    background-color: #fff;
+}
+.listeEquipement_section .bottom .head .search-bar input{
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin-left: 10px;
+}
+.listeEquipement_section .head .outils{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.listeEquipement_section .head .export span{
+    padding: 6px 10px;
+    background-color: #fff;
+    border-radius: .475rem;
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    transition: .3s ease;
+    font-size: 13px;
+    cursor: pointer;
+}
+.listeEquipement_section .head .export span:hover{
+    color: #056EE9;
+}
+.listeEquipement_section .head .export span i{
+    font-size: 18px;
+}
+
+.listeEquipement_section .list{
+    width: 100%;
+    background-color: #fff;
+    border-radius: .475rem;
+    padding: 10px;
+}
+.table__body {
+    width: 100%;
+    max-height: calc(89% - 1.6rem);
+    background-color: #fff;
+}
+
+
+
+
+
+
+.listeEquipement_section .footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.pagination{    
+    color: #383838;
+}
+
+.pagination ul{
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+}
+.pagination ul li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+}
+.pagination ul li.active{
+    background-color: #a20067;
+    color: #fff;
+}
+.pagination ul li a:hover{
+    color: #a20067;
+}
+.disabled-button {
+    pointer-events: none; 
+    opacity: 0.5;
+    cursor: not-allowed; 
+  }
+
+
+
+
+
+
+
+

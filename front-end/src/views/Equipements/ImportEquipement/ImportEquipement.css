@@ -1,0 +1,94 @@
+.import_equipement{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #11111170;
+    z-index: 9999;
+
+}
+.import_equipement .form-item{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 30px;
+    width: 700px;
+    background-color: #fff;
+    border-radius: .475rem;
+    animation:  menu-sub-dropdown-animation-fade-in .3s ease 1,menu-sub-dropdown-animation-move-up .3s ease 1;
+
+}
+.import_equipement .form-item .header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px ;
+    border-bottom: 1px solid #99A1B7;
+}
+.import_equipement .form-item .header h3{
+    color: #2e2e2e;
+    font-weight: 500;
+}
+.import_equipement .form-item .header .close{
+    cursor: pointer;
+}
+
+.import_equipement .form-item .bottom {
+margin-top: 40px;
+}
+.import_equipement .form-item .bottom .input-area{
+    width: 100%;
+    height: 200px;
+    border: 2px dashed #2e2e2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.import_equipement .form-item .bottom .input-area h3{
+    margin-bottom: 20px;
+}
+.import_equipement .form-item .bottom .input-area img{
+    margin-bottom: 20px;
+}
+.import_equipement .form-item .bottom .input-area input{
+    display: none;
+}
+
+
+
+
+@keyframes menu-sub-dropdown-animation-fade-in {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes menu-sub-dropdown-animation-move-up {
+    from {
+        margin-top: .75rem
+    }
+
+    to {
+        margin-top: 0
+    }
+}
+
+@keyframes menu-sub-dropdown-animation-move-down {
+    from {
+        margin-bottom: .75rem
+    }
+
+    to {
+        margin-bottom: 0
+    }
+}

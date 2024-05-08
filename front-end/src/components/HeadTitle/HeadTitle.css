@@ -1,0 +1,47 @@
+.headtitle_section{
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.headtitle_section .content{
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.headtitle_section .content h2{
+    font-size: 20px;
+    font-weight: 700;
+    color:#ffffff;
+    text-transform: capitalize;
+}
+.headtitle_section .content p{
+    margin-top: 10px;
+    text-transform: capitalize;
+    color: #a6adc2;
+    font-size: 14px;
+    font-weight: 600;
+}
+.headtitle_section .content p span{
+    margin-left:5px;
+}
+
+.headtitle_section .return{
+    position: absolute;
+    bottom: 80px;
+    left: 30px;
+    font-size: 13px;
+    color: #99A1B7;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #99A1B7;
+    cursor: pointer;
+    transition: .3s ease;
+}
+.headtitle_section .return:hover{
+    color: #a20067;
+    border-bottom: 1px solid #a20067;
+}
+

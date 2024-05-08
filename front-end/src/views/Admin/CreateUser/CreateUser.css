@@ -1,0 +1,107 @@
+.create_user{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #11111170;
+    z-index: 9999;
+
+}
+.create_user .form-item{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 30px;
+    width: 700px;
+    background-color: #fff;
+    border-radius: .475rem;
+    animation:  menu-sub-dropdown-animation-fade-in .3s ease 1,menu-sub-dropdown-animation-move-up .3s ease 1;
+}
+.create_user .form-item .top{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px ;
+    border-bottom: 1px solid #99A1B7;
+}
+.create_user .form-item .top h3{
+    color: #2e2e2e;
+    font-weight: 500;
+}
+.create_user .form-item .top .close{
+    cursor: pointer;
+}
+.create_user .form-item .bottom {
+    margin-top: 40px;
+}
+.create_user .form-item .bottom .form .input-field{
+    display: flex;
+    flex-direction: column;
+}
+.create_user .form-item .bottom .form .input-field label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+.create_user .form-item .bottom .form .input-field label span{
+    font-size: 10px ;
+    color: red;
+}
+.create_user .form-item .bottom .form .input-field input,.create_project .form-item .bottom .form .input-field select{
+    font-size: 13px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    width: 100%;
+    height: 42px;
+    margin: 8px 0;
+}
+.create_user .form-item .bottom .form .input-field textarea{
+    font-size: 13px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    padding: 10px 15px;
+    width: 100%;
+    margin: 8px 0;
+}
+.create_user .form-item .bottom .form button{
+    margin-top: 30px;
+}
+
+@keyframes menu-sub-dropdown-animation-fade-in {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes menu-sub-dropdown-animation-move-up {
+    from {
+        margin-top: .75rem
+    }
+
+    to {
+        margin-top: 0
+    }
+}
+
+@keyframes menu-sub-dropdown-animation-move-down {
+    from {
+        margin-bottom: .75rem
+    }
+
+    to {
+        margin-bottom: 0
+    }
+}

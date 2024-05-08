@@ -1,0 +1,303 @@
+header{
+    background-image: url('../../assets/Images/logo/Asset.png');
+    background-position: center;
+    background-size: cover;
+}
+
+
+nav{
+    width: 100%;
+    height: 80px;
+    padding: 0 35px;
+    border-bottom: 1px solid #ffffff1a;
+    top: -80px;
+    transition: .3s ease;
+    
+    z-index: 999;
+}
+nav.active{
+    width: 100%;
+    height: 70px;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.03);
+
+    z-index: 9999;
+}
+nav.active .content  .menu-links ul a{
+    color: #99A1B7 !important;
+}
+nav.active .content  .menu-links ul a.active{
+    background-color: #8787871a !important;
+    color: #99A1B7 !important;
+}
+nav.active .content .toolbar ul li div{
+    color: #99A1B7 !important;
+}
+nav.active .content .toolbar ul li:hover{
+    background-color: #8686861a;
+}
+nav .content{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav .content .brand {
+    display: flex;
+    align-items: center;
+}
+nav .content .brand img{
+    width: 100px;
+    margin-right: 30px;
+}
+nav .content .menu-links{
+    margin-right: auto;
+}
+nav .content .menu-links ul a{
+    color: #fff;
+    padding: 10px 13px;
+
+    margin-right: 10px;
+    
+}
+nav .content .menu-links ul a.active{
+    padding: 10px 13px;
+    background-color: #ffffff1a;
+    border-radius: 0.475rem;
+    color: #fff;
+}
+nav .content .toolbar .list{
+display: flex;
+align-items: center;
+gap: 1rem;
+} 
+nav .content .toolbar ul li:nth-child(1){
+    position: relative;
+}
+nav .content .toolbar ul li:nth-child(2){
+    position: relative;
+}
+nav .content .toolbar ul li .tool{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: .3s ease;
+    cursor: pointer;
+    border-radius: 0.475rem;
+
+}
+nav .content .toolbar ul li .tool:hover{
+    background-color: #ffffff1a;
+}
+nav .content .toolbar ul .search-bar{
+    width: 500px;
+    border-radius: .475rem;
+    padding: 9px;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    color: #99A1B7;
+    background-color: #fff;
+}
+nav .content .toolbar ul .search-bar input{
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin-left: 10px;
+}
+
+nav .content .toolbar ul .search-items{
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 500px;
+    max-height: 400px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.03);
+    z-index: 999;
+}
+nav .content .toolbar ul .search-items a{
+    width: 100%;
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #cfcfcf;
+    transition: .3s ease;
+}
+nav .content .toolbar ul .search-items a:hover{
+    color: #056EE9;
+}
+
+nav .content .toolbar ul li .notify{
+    position: relative;
+}
+nav .content .toolbar ul li .notify .count{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 2px;
+    right: 2px;
+    font-size: 12px;
+    background: red;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+nav .content .toolbar ul li .notification{
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 400px;
+    min-height: 150px;
+    max-height: calc(400px + 80px);
+    padding-bottom: 10px;
+
+    background-color: #fff;
+    border-radius: .475rem;
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.03);
+    z-index: 999; 
+    animation:  menu-sub-dropdown-animation-fade-in .3s ease 1,menu-sub-dropdown-animation-move-up .3s ease 1;
+}
+nav .content .toolbar ul li .notification h2{
+    padding: 20px;
+    color: #787879;
+}
+nav .content .toolbar ul li .notification.active{
+    display: block;
+}
+nav .content .toolbar ul li .notification p{
+    font-size: 13px;
+    color: #787879;
+}
+nav .content .toolbar ul li .notification p span{
+    color: #2e2e2e;
+}
+nav .content .toolbar ul li .notification .list-notication{
+    height: 400px;
+    overflow-y: scroll;
+}
+nav .content .toolbar ul li .notification .list-notication .notification-item{
+    padding: 10px 20px;
+    width: 100%;
+    border-bottom: 1px solid #b3b3b3;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #e6e6e6;
+    
+}
+
+
+nav .content .toolbar ul li .profil-icon{
+    position: relative;
+}
+nav .content .toolbar ul li .profile{
+    position: absolute;
+    top: 70px;
+    right: 30px;
+    width: 350px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: .475rem;
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.03);
+    z-index: 999; 
+    animation:  menu-sub-dropdown-animation-fade-in .3s ease 1,menu-sub-dropdown-animation-move-up .3s ease 1;
+}
+nav .content .toolbar ul li .profile.active{
+    display: block;
+}
+nav .content .toolbar ul li .profile .top{
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   padding: 10px 0;
+   border-bottom: 1px solid #99A1B7;
+}
+nav .content .toolbar ul li .profile .top .left img{
+    width: 60px;
+    border-radius: .475rem;
+}
+nav .content .toolbar ul li .profile .top .right span{
+    font-size: 14px;
+    color: #2e2e2e;
+    font-weight: 500;
+}
+nav .content .toolbar ul li .profile .top .right p{
+    font-size: 12px;
+    color: #99A1B7;
+}
+nav .content .toolbar ul li .profile .bottom ul li{
+    font-size: 14px;
+    color: #2e2e2e;
+    font-weight: 500;
+    margin: 15px 0;
+    transition: .3s ease;
+    cursor: pointer;
+}
+nav .content .toolbar ul li .profile .bottom ul li a{
+    font-size: 14px;
+}
+nav .content .toolbar ul li .profile .bottom ul li:hover{
+    color: #056EE9;
+}
+
+
+
+nav .content .toolbar ul li .user-profile{
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+}
+
+
+
+
+
+@keyframes menu-sub-dropdown-animation-fade-in {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes menu-sub-dropdown-animation-move-up {
+    from {
+        margin-top: .75rem
+    }
+
+    to {
+        margin-top: 0
+    }
+}
+
+@keyframes menu-sub-dropdown-animation-move-down {
+    from {
+        margin-bottom: .75rem
+    }
+
+    to {
+        margin-bottom: 0
+    }
+}
+@keyframes notification {
+    from {
+        opacity: 0;
+    }
+    to {
+        apacity: 1;
+    }
+}
+
+
+
