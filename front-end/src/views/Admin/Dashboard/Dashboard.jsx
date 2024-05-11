@@ -142,7 +142,7 @@ const Dashboard = () => {
                           alluser.map(e => {
                             return (
                               <tr>
-                                <td><img src={`http://localhost:8000/img/${e.imageUser}`} alt="" /></td>
+                                <td><img src={`/img/${e.imageUser}`} alt="" /></td>
                                 <td>{e.name}</td>
                                 <td >{e.email}</td>
                                 <td>{convertToK(e.projects?.length)}</td>
