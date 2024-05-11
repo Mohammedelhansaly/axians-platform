@@ -87,7 +87,7 @@ const Header = () => {
     const [searchlist, setsearchlist] = useState([])
 
     const getDATA = async () => {
-        await Axios.get(`http://localhost:8000/api/${AdmingetToken() ? 'admin' : 'user'}/mesprojet`).then((res) => {
+        await Axios.get(`/${AdmingetToken() ? 'admin' : 'user'}/mesprojet`).then((res) => {
             setprojects(res.data)
         })
             .catch(error => {
@@ -212,14 +212,14 @@ const Header = () => {
                                     }
 
                                 </li>
-                                <li><div className='tool profil-icon' onClick={toogleprofil}><img src={`http://localhost:8000/img/${AdmingetToken() ? adminDetails.imageUser : userDetails.imageUser}`} alt="" className='user-profile' /></div>
+                                <li><div className='tool profil-icon' onClick={toogleprofil}><img src={`/img/${AdmingetToken() ? adminDetails.imageUser : userDetails.imageUser}`} alt="" className='user-profile' /></div>
                                     {
                                         profilopen &&
 
                                         <div className="profile">
                                             <div className="top">
                                                 <div className="left">
-                                                    <img src={`http://localhost:8000/img/${AdmingetToken() ? adminDetails.imageUser : userDetails.imageUser}`} alt="" />
+                                                    <img src={`/img/${AdmingetToken() ? adminDetails.imageUser : userDetails.imageUser}`} alt="" />
                                                 </div>
                                                 <div className="right">
                                                     <span>{AdmingetToken() ? adminDetails.name : userDetails.name}</span>
