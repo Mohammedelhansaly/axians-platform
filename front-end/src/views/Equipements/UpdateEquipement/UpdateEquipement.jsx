@@ -12,7 +12,7 @@ const UpdateEquipement = ({ isOpen, isclose, equipementId, projetId }) => {
     const { Axios ,AdmingetToken} = AuthUser()
     const getDataById = async () => {
         try {
-            const res = await Axios.get(`http://localhost:8000/api/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/${projetId}/equipemets/edit/${equipementId}`)
+            const res = await Axios.get(`/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/${projetId}/equipemets/edit/${equipementId}`)
             setreference(res.data.reference)
             setlicence(res.data.licence)
             setstartDate(res.data.startDate)
@@ -30,7 +30,7 @@ const UpdateEquipement = ({ isOpen, isclose, equipementId, projetId }) => {
 
     const updateDataById = async () => {
 
-        await Axios.post(`http://localhost:8000/api/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/${projetId}/equipemets/update/${equipementId}`, {
+        await Axios.post(`/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/${projetId}/equipemets/update/${equipementId}`, {
             reference,
             licence,
             startDate,

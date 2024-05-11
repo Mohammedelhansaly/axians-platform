@@ -101,7 +101,7 @@ const EditProfile = () => {
 
                         previewImage
                           ? <img src={previewImage} alt="" width={200} id='output' />
-                          : <img src={`http://localhost:8000/img/${imgfile}`} alt="" width={200} id='output' />
+                          : <img src={`/img/${imgfile}`} alt="" width={200} id='output' />
 
                       }
                     </div></li>

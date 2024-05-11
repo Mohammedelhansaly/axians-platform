@@ -13,7 +13,7 @@ const UpdateProject = ({ isOpen, isclose, projectId }) => {
     const { Axios, AdmingetToken } = AuthUser()
     const GetDATAById = async () => {
         try {
-            const res = await Axios.get(`http://localhost:8000/api/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/edit/${projectId}`)
+            const res = await Axios.get(`/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/edit/${projectId}`)
             setname(res.data.name);
             setclient(res.data.client);
             setdescription(res.data.description);
@@ -28,7 +28,7 @@ const UpdateProject = ({ isOpen, isclose, projectId }) => {
     }, [projectId])
     const UpdateDATA = async () => {
 
-        await Axios.post(`http://localhost:8000/api/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/update/${projectId}`, {
+        await Axios.post(`/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/update/${projectId}`, {
             'name': name,
             'client': client,
             'description': description,

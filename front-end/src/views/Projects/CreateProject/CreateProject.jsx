@@ -27,7 +27,7 @@ const CreateProject = ({ isOpen, isclose }) => {
   const { Axios ,AdmingetToken} = AuthUser()
   const AddDATA = async () => {
 
-    await Axios.post(`http://localhost:8000/api/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/create`, {
+    await Axios.post(`/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/create`, {
       'name': name,
       'client': client,
       'description': description,

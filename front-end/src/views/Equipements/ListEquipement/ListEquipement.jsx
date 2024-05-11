@@ -21,7 +21,7 @@ const ListEquipement = () => {
     const { Axios, AdmingetToken } = AuthUser()
     const { id } = useParams()
     const GetDATAById = async () => {
-        await Axios.get(`http://localhost:8000/api/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/show/${id}`).then(res => {
+        await Axios.get(`/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/show/${id}`).then(res => {
             setequipemets(res.data.equipements)
             setprojet(res.data)
             setloddings(true)
@@ -35,7 +35,7 @@ const ListEquipement = () => {
     // data
     const deleteDataById = async (equipementId) => {
 
-        await Axios.get(`http://localhost:8000/api/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/${id}/equipemets/destroy/${equipementId}`).then(res => {
+        await Axios.get(`/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/${id}/equipemets/destroy/${equipementId}`).then(res => {
             window.location.reload()
         }).catch(er => {
             console.log(er)

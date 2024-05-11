@@ -13,7 +13,7 @@ const ListeProject = () => {
   const [copyProjects, setCopyProjects] = useState([])
   const { Axios, AdmingetToken } = AuthUser()
   const getDATA = async () => {
-    await Axios.get(`http://localhost:8000/api/${AdmingetToken() ? 'admin' : 'user'}/mesprojet`).then((res) => {
+    await Axios.get(`/${AdmingetToken() ? 'admin' : 'user'}/mesprojet`).then((res) => {
       setprojects(res.data)
       setCopyProjects(res.data)
       setlodding(true)
@@ -28,7 +28,7 @@ const ListeProject = () => {
 
 
   const deleteData = async (id) => {
-    await Axios.get(`http://localhost:8000/api/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/destroy/${id}`)
+    await Axios.get(`/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/destroy/${id}`)
     window.location.reload()
   }
   const totalEquipements = copyProjects.reduce((total, project) => {

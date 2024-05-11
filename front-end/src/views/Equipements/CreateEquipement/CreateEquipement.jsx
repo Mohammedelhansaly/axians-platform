@@ -14,7 +14,7 @@ const CreateEquipement = ({ isOpen, isclose }) => {
     const [endDate, setendDate] = useState('')
     const [error, seterror] = useState({})
     const AddData = async () => {
-        await Axios.post(`http://localhost:8000/api/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/${id}/equipemets/create`, {
+        await Axios.post(`/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/${id}/equipemets/create`, {
             reference,
             licence,
             serialnumber,

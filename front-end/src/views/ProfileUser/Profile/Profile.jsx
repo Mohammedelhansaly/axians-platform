@@ -49,7 +49,7 @@ const Profile = () => {
                 </div>
                 <div className="info">
                   <ul>
-                    <li><span>Profile</span><img src={`http://localhost:8000/img/${AdmingetToken() ? adminDetails.imageUser : userDetails.imageUser}`} alt="" /></li>
+                    <li><span>Profile</span><img src={`/img/${AdmingetToken() ? adminDetails.imageUser : userDetails.imageUser}`} alt="" /></li>
                     <li><span>Nom</span><p>{AdmingetToken() ? adminDetails.name : userDetails.name}</p></li>
                     <li><span>Email</span><p>{AdmingetToken() ? adminDetails.email : userDetails.email}</p></li>
                   </ul>
