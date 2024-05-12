@@ -6,7 +6,7 @@ import UpdateProject from '../UpdateProject/UpdateProject'
 import Helmet from '../../../components/Hemlet/Hemlet'
 import AuthUser from '../../../api/AuthUser'
 import Loader from '../../../components/Loader/Loader'
-
+import { ToastContainer, toast } from 'react-toastify';
 const ListeProject = () => {
   const [lodding, setlodding] = useState(false)
   const [projets, setprojects] = useState([])
@@ -27,9 +27,17 @@ const ListeProject = () => {
   }, [])
 
 
-  const deleteData = async (id) => {
-    await Axios.get(`/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/destroy/${id}`)
-    window.location.reload()
+  const deleteData = (id) => {
+    Axios.get(`/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/destroy/${id}`)
+    .then(res => {
+      toast.success("Le projet a été supprimé avec succés")
+      setTimeout(() => {
+        window.location.reload()
+      }, 3000);
+    }).catch(err => {
+      seterror(err.response.data.errors)
+    })
+    
   }
   const totalEquipements = copyProjects.reduce((total, project) => {
     return total + project.equipements.length;
@@ -157,6 +165,7 @@ const ListeProject = () => {
 
 
                 </div>
+                <ToastContainer />
               </div>
               <div className="foot">
                 <div className="counter">

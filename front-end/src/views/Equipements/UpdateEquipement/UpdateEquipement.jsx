@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './UpdateEquipement.css'
 import AuthUser from '../../../api/AuthUser'
-
+import { ToastContainer, toast } from 'react-toastify';
 const UpdateEquipement = ({ isOpen, isclose, equipementId, projetId }) => {
     const [reference, setreference] = useState('')
     const [licence, setlicence] = useState('')
@@ -37,7 +37,10 @@ const UpdateEquipement = ({ isOpen, isclose, equipementId, projetId }) => {
             endDate,
             serialnumber
         }).then(res => {
-            window.location.reload()
+            toast.success("L'equipement a été modifié avec succés")
+            setTimeout(() => {
+              window.location.reload()
+            }, 3000);
         }).catch(err => {
             seterror(err.response.data.errors)
         })
@@ -49,7 +52,7 @@ const UpdateEquipement = ({ isOpen, isclose, equipementId, projetId }) => {
     }
     return (
         <>
-
+            <ToastContainer />
             <div className="Update_Equipement">
                 <div className="form-item">
                     <div className="header">

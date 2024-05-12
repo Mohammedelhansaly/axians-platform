@@ -43,6 +43,7 @@ const Header = () => {
     };
     const fetchnotification = async () => {
         try {
+           
             const res = await Axios.get(`/${AdmingetToken() ? 'admin' : 'user'}/notify`);
             console.log(res.data)
         } catch (error) {
@@ -212,14 +213,14 @@ const Header = () => {
                                     }
 
                                 </li>
-                                <li><div className='tool profil-icon' onClick={toogleprofil}><img src={`/img/${AdmingetToken() ? adminDetails.imageUser : userDetails.imageUser}`} alt="" className='user-profile' /></div>
+                                <li><div className='tool profil-icon' onClick={toogleprofil}><img src={`${Axios.defaults.backURL}/img/${AdmingetToken() ? adminDetails.imageUser : userDetails.imageUser}`} alt="" className='user-profile' /></div>
                                     {
                                         profilopen &&
 
                                         <div className="profile">
                                             <div className="top">
                                                 <div className="left">
-                                                    <img src={`/img/${AdmingetToken() ? adminDetails.imageUser : userDetails.imageUser}`} alt="" />
+                                                    <img src={`{Axios.defaults.backURL}/img/${AdmingetToken() ? adminDetails.imageUser : userDetails.imageUser}`} alt="" />
                                                 </div>
                                                 <div className="right">
                                                     <span>{AdmingetToken() ? adminDetails.name : userDetails.name}</span>

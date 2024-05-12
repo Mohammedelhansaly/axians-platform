@@ -47,7 +47,7 @@ class AdminController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (!$token = auth()->guard('admin')->attempt($credentials)) {
-            return response()->json(['error' => 'l\'e-mail n\'existe pas'], 401);
+            return response()->json(['error' =>  'email / password Incorrect'], 401);
         }
 
         return $this->respondWithToken($token);
@@ -103,7 +103,7 @@ class AdminController extends Controller
         }
 
         $user->name = $request->name;
-        $user->email = $request->email;
+        //$user->email = $request->email;
         $user->save();
         return response()->json([
             'message' => "l'utilisateur a été mis à jour avec succès"

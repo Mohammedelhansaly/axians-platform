@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './UpdateProject.css'
 import axios from 'axios'
 import AuthUser from '../../../api/AuthUser'
-
+import { ToastContainer, toast } from 'react-toastify';
 const UpdateProject = ({ isOpen, isclose, projectId }) => {
 
     const [name, setname] = useState('')
@@ -33,7 +33,10 @@ const UpdateProject = ({ isOpen, isclose, projectId }) => {
             'client': client,
             'description': description,
         }).then(res => {
+        toast.success("Le projet a été modifié avec succés")
+        setTimeout(() => {
             window.location.reload()
+        }, 3000);
         }).catch(error => {
             seterror(error.response.data.errors)
         })
@@ -111,6 +114,7 @@ const UpdateProject = ({ isOpen, isclose, projectId }) => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </>
     )
 }

@@ -9,7 +9,7 @@ import AuthUser from '../../../api/AuthUser'
 import Loader from '../../../components/Loader/Loader'
 import ImportEquipement from '../ImportEquipement/ImportEquipement'
 import * as XLSX from "xlsx";
-
+import { ToastContainer, toast } from 'react-toastify';
 
 
 
@@ -36,7 +36,10 @@ const ListEquipement = () => {
     const deleteDataById = async (equipementId) => {
 
         await Axios.get(`/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/${id}/equipemets/destroy/${equipementId}`).then(res => {
-            window.location.reload()
+            toast.success("L'equipement a été supprimé avec succés")
+                setTimeout(() => {
+                  window.location.reload()
+                }, 3000);
         }).catch(er => {
             console.log(er)
         })
@@ -165,6 +168,7 @@ const ListEquipement = () => {
 
     return (
         <>
+        <ToastContainer />
             <Helmet title="liste equipement">
                 {
                     loddings ?

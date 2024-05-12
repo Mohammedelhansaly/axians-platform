@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './CreateEquipement.css'
 import { useParams } from 'react-router-dom'
 import AuthUser from '../../../api/AuthUser'
-
+import { ToastContainer, toast } from 'react-toastify';
 const CreateEquipement = ({ isOpen, isclose }) => {
     const { id } = useParams()
     const { Axios ,AdmingetToken} = AuthUser()
@@ -21,7 +21,10 @@ const CreateEquipement = ({ isOpen, isclose }) => {
             startDate,
             endDate
         }).then(res => {
-            window.location.reload()
+            toast.success("L'equipement a été ajouté avec succés")
+                setTimeout(() => {
+                  window.location.reload()
+                }, 3000);
         }).catch(err => {
             seterror(err.response.data.errors);
         })
@@ -99,7 +102,7 @@ const CreateEquipement = ({ isOpen, isclose }) => {
                     </div>
                 </div>
             </div>
-
+            <ToastContainer />
         </>
     )
 }

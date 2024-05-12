@@ -57,6 +57,7 @@ export default function AuthUser() {
         settoken(token)
     }
     const Axios = axios.create({
+        backURL: 'http://localhost:8000',
         baseURL: 'http://localhost:8000/api',
         headers: {
             "Content-type": "multipart/form-data",

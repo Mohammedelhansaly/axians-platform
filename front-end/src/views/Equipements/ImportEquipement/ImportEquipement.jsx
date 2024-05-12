@@ -41,12 +41,12 @@ const ImportEquipement = ({ projectId, isOpen, isclose }) => {
     const importFile = () => {
         console.log(datax)
         Axios.post(`${AdmingetToken() ? 'admin' : 'user'}/mesprojet/${projectId}/equipemets/import`, datax).then(res => {
-            toast.success("Importer avec succes")
+            toast.success("Les equipements sont importés avec succes")
             setTimeout(() => {
                 window.location.reload()
             }, 3000);
         }).catch(err => {
-            alert(err.reponse.dara.error)
+            alert(err.reponse.data.error)
         })
     };
 

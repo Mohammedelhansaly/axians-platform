@@ -24,6 +24,7 @@ const AdminLogin = () => {
         })
       }
       else {
+        console.log(e);
         seterror(e.response.data.errors)
       }
     })
@@ -50,17 +51,17 @@ const AdminLogin = () => {
 
                   </div>
                   <div className="input-field">
-                    <label htmlFor="">mot de pass</label>
+                    <label htmlFor="">Password</label>
                     <input type="password"
                       placeholder="Entrer votre Mot de pass"
                       value={password}
-                      onChange={(e) => setpassword(e.target.value)}
+                      onChange={(e) => setpassword(e.target.value) }
                     />
                     {error.password && <span>{error.password}</span>}
 
                   </div>
 
-                  <button className='btn2' onClick={handleSubmit} >Se connecter</button>
+                  <button className='btn2' onClick={handleSubmit}  >Se connecter</button>
                   <div className="link">
 
                   </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './CreateProject.css'
 import axios from 'axios'
 import AuthUser from '../../../api/AuthUser'
-
+import { ToastContainer, toast } from 'react-toastify';
 const CreateProject = ({ isOpen, isclose }) => {
   // Get the name of the current country from local storage and store it in a variable
 
@@ -25,6 +25,7 @@ const CreateProject = ({ isOpen, isclose }) => {
   const [description, setdescription] = useState('')
   const [error, seterror] = useState({})
   const { Axios ,AdmingetToken} = AuthUser()
+ 
   const AddDATA = async () => {
 
     await Axios.post(`/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/create`, {
@@ -32,7 +33,10 @@ const CreateProject = ({ isOpen, isclose }) => {
       'client': client,
       'description': description,
     }).then(res => {
-      window.location.reload()
+      toast.success("Le projet a été ajouté avec succés")
+      setTimeout(() => {
+        window.location.reload()
+      }, 3000);
     }).catch(err => {
       seterror(err.response.data.errors)
     })
@@ -93,6 +97,7 @@ const CreateProject = ({ isOpen, isclose }) => {
           </div>
         </div>
       </div >
+      <ToastContainer />
     </>
   )
 }

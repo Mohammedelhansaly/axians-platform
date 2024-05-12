@@ -44,7 +44,7 @@ class UserController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (!$token = Auth::guard('user')->attempt($credentials)) {
-            return response()->json(['error' => 'l\'e-mail n\'existe pas'], 401);
+            return response()->json(['error' => 'email / password Incorrect'], 401);
         }
 
         return $this->respondWithToken($token);

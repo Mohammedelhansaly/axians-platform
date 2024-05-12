@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './CreateUser.css'
 import AuthUser from '../../../api/AuthUser'
-
+import { ToastContainer, toast } from 'react-toastify';
 const CreateUser = ({ isOpen, isclose }) => {
     const [name, setname] = useState()
     const [email, setemail] = useState()
@@ -13,7 +13,10 @@ const CreateUser = ({ isOpen, isclose }) => {
             name, email
         })
             .then(res => {
-                window.location.reload()
+                toast.success("L'utilisateur a été ajouté avec succés",{ delay: 3000 })
+                setTimeout(() => {
+                  window.location.reload()
+                }, 3000);
             })
             .catch(err => seterror(err.response.data.errors))
     }
@@ -56,6 +59,7 @@ const CreateUser = ({ isOpen, isclose }) => {
                     </div>
                 </div>
             </div >
+            <ToastContainer />
         </>
     )
 }

@@ -70,7 +70,7 @@ const EditProfile = () => {
       formData.append('email', email);
 
       const response = await Axios.post(`${AdmingetToken() ? 'admin' : 'user'}/updateProfile`, formData);
-      toast.success(response.data.message)
+      toast.success("Votre Profile a été mis à jour avec succés")
       setTimeout(() => {
         window.location.reload()
       }, 3000);
@@ -101,7 +101,7 @@ const EditProfile = () => {
 
                         previewImage
                           ? <img src={previewImage} alt="" width={200} id='output' />
-                          : <img src={`/img/${imgfile}`} alt="" width={200} id='output' />
+                          : <img src={`${Axios.defaults.backURL}/img/${imgfile}`} alt="" width={200} id='output' />
 
                       }
                     </div></li>
@@ -110,7 +110,7 @@ const EditProfile = () => {
                   </div>
                   </li>
 
-                  <li><p>Email</p> <div className='input-field'><input type="text" value={email} onChange={(e) => setemail(e.target.value)} />
+                  <li><p>Email</p> <div className='input-field'><input disabled type="text" value={email} onChange={(e) => setemail(e.target.value)} />
                     {error.email && <span>{error.email}</span>}
                   </div>
                   </li>

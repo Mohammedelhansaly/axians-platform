@@ -23,8 +23,8 @@ const EditPassword = () => {
         formdata.append('confirm_password', confirm_password)
 
         await Axios.post(`${AdmingetToken() ? 'admin' : 'user'}/updatePassword`, formdata).then(response => {
-            console.log(response)
-            toast.success(response.data.message)
+        
+            toast.success("Votre mot de passe a été changé avec succés")
             setTimeout(() => {
                 navigate('/EditProfile')
             }, 3000);
