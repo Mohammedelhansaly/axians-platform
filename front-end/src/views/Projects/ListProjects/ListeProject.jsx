@@ -25,7 +25,7 @@ const ListeProject = () => {
   useEffect(() => {
     getDATA()
   }, [])
-
+  
 
   const deleteData = (id) => {
     Axios.get(`/${AdmingetToken() ? 'admin' : 'user'}/mesprojet/destroy/${id}`)
@@ -37,7 +37,7 @@ const ListeProject = () => {
     }).catch(err => {
       seterror(err.response.data.errors)
     })
-    
+
   }
   const totalEquipements = copyProjects.reduce((total, project) => {
     return total + project.equipements.length;
