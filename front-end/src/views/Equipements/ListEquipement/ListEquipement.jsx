@@ -98,7 +98,7 @@ const ListEquipement = () => {
 
 
     // pagination function
-    const [showItem, setShowItem] = useState(30)
+    const [showItem, setShowItem] = useState(100)
     const [currentPage, setcurrentPage] = useState(1)
     const recordsPerPage = showItem
     const lastIndex = currentPage * recordsPerPage
@@ -261,7 +261,7 @@ const ListEquipement = () => {
                                             <select value={showItem} onChange={(e) => setShowItem(e.target.value)} name="" id="">
                                                 <option value="25">25</option>
                                                 <option value="50">50</option>
-                                                <option value="100">100</option>
+                                                <option value="100" selected>100</option>
                                             </select>
                                         </div>
                                         <div className="pagination">

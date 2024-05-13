@@ -5,12 +5,13 @@ import * as XLSX from "xlsx";
 import './ImportEquipement.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import ClipLoader from "react-spinners/ClipLoader";
 const ImportEquipement = ({ projectId, isOpen, isclose }) => {
 
     const { Axios, AdmingetToken } = AuthUser()
     const [file, setFile] = useState(null);
     const [fileName, setFileName] = useState(null)
+    const [spinner , setSpinner] = useState(false)
     const [datax, setdatax] = useState([])
 
     const changeFile = (e) => {
@@ -38,14 +39,17 @@ const ImportEquipement = ({ projectId, isOpen, isclose }) => {
 
 
 
-    const importFile = () => {
+     const importFile =  ()  => {
         console.log(datax)
-        Axios.post(`${AdmingetToken() ? 'admin' : 'user'}/mesprojet/${projectId}/equipemets/import`, datax).then(res => {
+        setSpinner(true)
+         Axios.post(`${AdmingetToken() ? 'admin' : 'user'}/mesprojet/${projectId}/equipemets/import`, datax).then(res => {
             toast.success("Les equipements sont importés avec succes")
+            setSpinner(false)
             setTimeout(() => {
                 window.location.reload()
             }, 3000);
         }).catch(err => {
+            setSpinner(false)
             alert(err.reponse.data.error)
         })
     };
@@ -78,7 +82,9 @@ const ImportEquipement = ({ projectId, isOpen, isclose }) => {
                                 {fileName ? <p>file : {fileName}</p> : null}
                             </label>
                         </div>
-                        <button className='btn2' onClick={importFile}>Importer</button>
+                        {spinner ?                        <button className='btn2'><ClipLoader color="#ffffff" loading="true" size={20} aria-label="Loading Spinner"data-testid="loader" /></button>
+ :  <button className='btn2' onClick={importFile}>Importer</button>}
+                       
                     </div>
                 </div>
             </div>
