@@ -52,7 +52,7 @@ const CreateProject = ({ isOpen, isclose }) => {
       <div className="create_project">
         <div className="form-item">
           <div className="top">
-            <h3>Noveau Projet</h3>
+            <h3>Nouveau Projet</h3>
             <div className="close" onClick={isclose}>
               <i class="ri-close-fill"></i>
             </div>
