@@ -46,7 +46,7 @@ class EquipementController extends Controller
             'reference' => 'required',
             'licence' => 'required',
             'serialnumber' => 'required',
-            'startDate' => 'required',
+            'startDate' => '',
             'endDate' => 'required',
         ]);
         $project->equipements()->create($request->only(['reference', 'licence', 'serialnumber', 'startDate', 'endDate',]));
@@ -80,7 +80,7 @@ class EquipementController extends Controller
             'reference' => 'required',
             'licence' => 'required',
             'serialnumber' => 'required',
-            'startDate' => 'required',
+            'startDate' => '',
             'endDate' => 'required',
         ]);
         $project->equipements()->findOrFail($id)->update($request->only(['reference', 'licence', 'serialnumber', 'startDate', 'endDate',]));

@@ -246,7 +246,7 @@ const ListEquipement = () => {
                                                             })
                                                             :
                                                             <tr>
-                                                                <td colSpan={6} className='empty'>aucune Equipement trove</td>
+                                                                <td colSpan={6} className='empty'>Aucun equipement trouvé</td>
                                                             </tr>
 
 

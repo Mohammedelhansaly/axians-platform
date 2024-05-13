@@ -144,11 +144,11 @@ const ListeProject = () => {
                               <div className="info">
                                 <div className="due">
                                   <h5>{new Date(e.created_at).toISOString().slice(0, 10)}</h5>
-                                  <p>créé à</p>
+                                  <p>créé en</p>
                                 </div>
                                 <div className="count">
                                   <h5>{e.equipements.length}</h5>
-                                  <p>nombre  équipements</p>
+                                  <p>Total Equipements</p>
                                 </div>
                               </div>
                             </Link>

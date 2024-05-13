@@ -40,7 +40,7 @@ const CreateEquipement = ({ isOpen, isclose }) => {
             <div className="Create_equipement">
                 <div className="form-item">
                     <div className="header">
-                        <h3>Noveau Equipement</h3>
+                        <h3>Nouveau Equipement</h3>
                         <div className="close" onClick={isclose}>
                             <i class="ri-close-fill"></i>
                         </div>
