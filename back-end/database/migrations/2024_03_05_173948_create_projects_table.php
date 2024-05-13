@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('client');
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('admin_id')->nullable();
+            $table->unsignedBigInteger('admin_id')->default(1);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
             $table->timestamps();
