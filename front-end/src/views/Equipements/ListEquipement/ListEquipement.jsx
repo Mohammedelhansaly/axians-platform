@@ -9,6 +9,8 @@ import AuthUser from '../../../api/AuthUser'
 import Loader from '../../../components/Loader/Loader'
 import ImportEquipement from '../ImportEquipement/ImportEquipement'
 import * as XLSX from "xlsx";
+import ReactPaginate from "react-paginate";
+
 import { ToastContainer, toast } from 'react-toastify';
 
 
@@ -98,28 +100,47 @@ const ListEquipement = () => {
 
 
     // pagination function
-    const [showItem, setShowItem] = useState(100)
-    const [currentPage, setcurrentPage] = useState(1)
-    const recordsPerPage = showItem
-    const lastIndex = currentPage * recordsPerPage
-    const firstIndex = lastIndex - recordsPerPage
-    const records = searchedequipement.slice(firstIndex, lastIndex)
-    const npage = Math.ceil(equipements.length / recordsPerPage)
-    const numbers = [...Array(npage + 1).keys()].slice(1)
+    // const [showItem, setShowItem] = useState(100)
+    // const [currentPage, setcurrentPage] = useState(1)
+    // const recordsPerPage = showItem
+    // const lastIndex = currentPage * recordsPerPage
+    // const firstIndex = lastIndex - recordsPerPage
+    // const records = searchedequipement.slice(firstIndex, lastIndex)
+    // const npage = Math.ceil(equipements.length / recordsPerPage)
+    // const numbers = [...Array(npage + 1).keys()].slice(1)
 
-    function prePage() {
-        if (currentPage !== firstIndex) {
-            setcurrentPage(currentPage - 1)
-        }
-    }
-    function nextpage() {
-        if (currentPage !== lastIndex) {
-            setcurrentPage(currentPage + 1)
-        }
-    }
-    function changeCPage(id) {
-        setcurrentPage(id)
-    }
+    // function prePage() {
+    //     if (currentPage !== firstIndex) {
+    //         setcurrentPage(currentPage - 1)
+    //     }
+    // }
+    // function nextpage() {
+    //     if (currentPage !== lastIndex) {
+    //         setcurrentPage(currentPage + 1)
+    //     }
+    // }
+    // function changeCPage(id) {
+    //     setcurrentPage(id)
+    // }
+
+    const [itemOffset, setItemOffset] = useState(0);
+    const [pageCount, setpageCount] = useState(0)
+    const [showItem, setShowItem] = useState(100)
+    const [currentItem, setcurrentItems] = useState()
+
+    useEffect(() => {
+        const endOffset = itemOffset + showItem;
+        setcurrentItems(searchedequipement.slice(itemOffset, endOffset))
+        setpageCount(Math.ceil(equipements.length / showItem));
+    },[itemOffset,showItem,equipements])
+
+
+
+    const handlePageClick = (event) => {
+        const newOffset = (event.selected * showItem) % equipements.length;
+        setItemOffset(newOffset);
+    };
+
 
 
 
@@ -265,24 +286,25 @@ const ListEquipement = () => {
                                             </select>
                                         </div>
                                         <div className="pagination">
-                                            <ul>
-                                                <li className={`page-item ${currentPage < npage ? 'disabled-button' : ''}`} onClick={prePage}>
-                                                    <Link className='page-link' href='' ><i className="ri-arrow-left-s-line"></i></Link>
-                                                </li>
-                                                {
-                                                    numbers.map(e => {
-                                                        return (
-                                                            <li className={` page-item ${currentPage === e ? 'active' : ''}`} onClick={() => changeCPage(e)}>
-                                                                <Link className='page-link' href="" >{e}</Link>
-                                                            </li>
-                                                        )
-
-                                                    })
-                                                }
-                                                <li className={`page-item ${currentPage >= npage ? 'disabled-button' : ''}`} onClick={nextpage} >
-                                                    <Link className='page-link' href=''  ><i className="ri-arrow-right-s-line"></i></Link>
-                                                </li>
-                                            </ul>
+                                             <ReactPaginate
+                                                previousLabel={"<"}
+                                                nextLabel={">"}
+                                                breakLabel={"..."}
+                                                pageCount={pageCount}
+                                                pageRangeDisplayed={3}
+                                                renderOnZeroPageCount={null}
+                                                onPageChange={handlePageClick}
+                                                containerClassName={"pagination "}
+                                                pageClassName={"page-item"}
+                                                pageLinkClassName={"page-link"}
+                                                previousClassName={"page-item"}
+                                                previousLinkClassName={"page-link"}
+                                                nextClassName={"page-item"}
+                                                nextLinkClassName={"page-link"}
+                                                breakClassName={"page-item"}
+                                                breakLinkClassName={"page-link"}
+                                                activeClassName={"active"}
+                                            />
                                         </div>
                                     </div>
                                 </div>
