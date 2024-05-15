@@ -162,8 +162,8 @@ const ListeProject = () => {
                 <div className=" projects-items row3">
 
                   {
-                    records.length > 0 ?
-                      records.map(e => {
+                    currentItem.length > 0 ?
+                      currentItem.map(e => {
                         return (
                           <div className="col">
                             <Link to={`/ListeEquipements/${e.id}`}>
