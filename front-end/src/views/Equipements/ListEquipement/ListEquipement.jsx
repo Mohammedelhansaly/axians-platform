@@ -279,10 +279,10 @@ const ListEquipement = () => {
                                     </div>
                                     <div className="footer">
                                         <div className="showItem">
-                                            <select value={showItem} onChange={(e) => setShowItem(e.target.value)} name="" id="">
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100" selected>100</option>
+                                             <select value={showItem} onChange={(e) => setShowItem(e.target.value)} name="" id="">
+                                                <option value="100">100</option>
+                                                <option value="200">200</option>
+                                                <option value="500">500</option>
                                             </select>
                                         </div>
                                         <div className="pagination">
