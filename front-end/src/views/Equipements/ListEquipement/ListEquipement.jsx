@@ -84,57 +84,28 @@ const ListEquipement = () => {
     // function to search for items by serial number
     // const data = [... new Set(projet.equipements)]
     // console.log(data)
-
-    const [searchTerm, setSearchTerm] = useState("");
-    const searchedequipement = equipements.filter((item) => {
-        if (searchTerm.value === "") {
-            return item;
-        }
-        if (item.serialnumber.toLowerCase().includes(searchTerm.toLowerCase())) {
-            return item;
-        } else {
-            return console.log("not found");
-        }
-
-    });
-
-
-    // pagination function
-    // const [showItem, setShowItem] = useState(100)
-    // const [currentPage, setcurrentPage] = useState(1)
-    // const recordsPerPage = showItem
-    // const lastIndex = currentPage * recordsPerPage
-    // const firstIndex = lastIndex - recordsPerPage
-    // const records = searchedequipement.slice(firstIndex, lastIndex)
-    // const npage = Math.ceil(equipements.length / recordsPerPage)
-    // const numbers = [...Array(npage + 1).keys()].slice(1)
-
-    // function prePage() {
-    //     if (currentPage !== firstIndex) {
-    //         setcurrentPage(currentPage - 1)
-    //     }
-    // }
-    // function nextpage() {
-    //     if (currentPage !== lastIndex) {
-    //         setcurrentPage(currentPage + 1)
-    //     }
-    // }
-    // function changeCPage(id) {
-    //     setcurrentPage(id)
-    // }
-
+    
+ const [searchTerm, setSearchTerm] = useState("");
+    const [searchedList, setsearchedList] = useState([])
     const [itemOffset, setItemOffset] = useState(0);
     const [pageCount, setpageCount] = useState(0)
     const [showItem, setShowItem] = useState(100)
-    const [currentItem, setcurrentItems] = useState()
+    const [currentItem, setcurrentItems] = useState([])
 
     useEffect(() => {
+
+        const searchedequipement = equipements.filter((item) => {
+            if (searchTerm === "") {
+                return true; 
+            }
+            return item.serialnumber.toLowerCase().includes(searchTerm.toLowerCase());
+        });
+        setsearchedList(searchedequipement)
+
         const endOffset = itemOffset + showItem;
-        setcurrentItems(searchedequipement.slice(itemOffset, endOffset))
+        setcurrentItems(searchedList.slice(itemOffset, endOffset))
         setpageCount(Math.ceil(equipements.length / showItem));
-    },[itemOffset,showItem,equipements])
-
-
+    }, [itemOffset, showItem, equipements, searchedList])
 
     const handlePageClick = (event) => {
         const newOffset = (event.selected * showItem) % equipements.length;
