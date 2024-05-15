@@ -63,27 +63,46 @@ const ListeProject = () => {
     setprojects(sortedItems);
   };
 
-  const [currentPage, setcurrentPage] = useState(1)
-  const recordsPerPage = 8
-  const lastIndex = currentPage * recordsPerPage
-  const firstIndex = lastIndex - recordsPerPage
-  const records = projets.slice(firstIndex, lastIndex)
-  const npage = Math.ceil(projets.length / recordsPerPage)
-  const numbers = [...Array(npage + 1).keys()].slice(1)
+  // const [currentPage, setcurrentPage] = useState(1)
+  // const recordsPerPage = 8
+  // const lastIndex = currentPage * recordsPerPage
+  // const firstIndex = lastIndex - recordsPerPage
+  // const records = projets.slice(firstIndex, lastIndex)
+  // const npage = Math.ceil(projets.length / recordsPerPage)
+  // const numbers = [...Array(npage + 1).keys()].slice(1)
 
-  function prePage() {
-    if (currentPage !== firstIndex) {
-      setcurrentPage(currentPage - 1)
-    }
-  }
-  function nextpage() {
-    if (currentPage !== lastIndex) {
-      setcurrentPage(currentPage + 1)
-    }
-  }
-  function changeCPage(id) {
-    setcurrentPage(id)
-  }
+  // function prePage() {
+  //   if (currentPage !== firstIndex) {
+  //     setcurrentPage(currentPage - 1)
+  //   }
+  // }
+  // function nextpage() {
+  //   if (currentPage !== lastIndex) {
+  //     setcurrentPage(currentPage + 1)
+  //   }
+  // }
+  // function changeCPage(id) {
+  //   setcurrentPage(id)
+  // }
+
+
+  const [itemOffset, setItemOffset] = useState(0);
+  const [pageCount, setpageCount] = useState(0)
+  const [showItem, setShowItem] = useState(8)
+  const [currentItem, setcurrentItems] = useState()
+
+  useEffect(() => {
+    const endOffset = itemOffset + showItem;
+    setcurrentItems(projets.slice(itemOffset, endOffset))
+    setpageCount(Math.ceil(projets.length / showItem));
+  }, [itemOffset, showItem, projets])
+
+
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * showItem) % projets.length;
+    setItemOffset(newOffset);
+  };
 
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [projectId, setprojectId] = useState(null)
@@ -94,6 +113,13 @@ const ListeProject = () => {
   }
   const closeModal = () => {
     setIsModalOpen(false)
+  }
+
+  function convertToK(number) {
+    if (number >= 1000) {
+      return (number / 1000).toFixed(1) + 'k';
+    }
+    return number;
   }
 
 
@@ -107,11 +133,11 @@ const ListeProject = () => {
             <div className="content">
               <div className="total row2">
                 <div className="col">
-                  <h2>{copyProjects.length}</h2>
+                  <h2>{convertToK(copyProjects.length)}</h2>
                   <p>Total Projets</p>
                 </div>
                 <div className="col">
-                  <h2>{totalEquipements}</h2>
+                  <h2>{convertToK(totalEquipements)}</h2>
                   <p>Total Equipements</p>
                 </div>
               </div>
@@ -169,27 +195,28 @@ const ListeProject = () => {
               </div>
               <div className="foot">
                 <div className="counter">
-                  <p>Affichage de 1 à {recordsPerPage} sur {data.length} entrées</p>
+                  <p>Affichage de 1 à {showItem} sur {data.length} entrées</p>
                 </div>
                 <div className="pagination">
-                  <ul>
-                    <li className={`page-item ${currentPage < npage ? 'disabled-button' : ''}`} onClick={prePage}>
-                      <Link className='page-link' href='' ><i className="ri-arrow-left-s-line"></i></Link>
-                    </li>
-                    {
-                      numbers.map(e => {
-                        return (
-                          <li className={` page-item ${currentPage === e ? 'active' : ''}`} onClick={() => changeCPage(e)}>
-                            <Link className='page-link' href="" >{e}</Link>
-                          </li>
-                        )
-
-                      })
-                    }
-                    <li className={`page-item ${currentPage >= npage ? 'disabled-button' : ''}`} onClick={nextpage} >
-                      <Link className='page-link' href=''  ><i className="ri-arrow-right-s-line"></i></Link>
-                    </li>
-                  </ul>
+                 <ReactPaginate
+                    previousLabel={"<"}
+                    nextLabel={">"}
+                    breakLabel={"..."}
+                    pageCount={pageCount}
+                    pageRangeDisplayed={3}
+                    renderOnZeroPageCount={null}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination "}
+                    pageClassName={"page-item"}
+                    pageLinkClassName={"page-link"}
+                    previousClassName={"page-item"}
+                    previousLinkClassName={"page-link"}
+                    nextClassName={"page-item"}
+                    nextLinkClassName={"page-link"}
+                    breakClassName={"page-item"}
+                    breakLinkClassName={"page-link"}
+                    activeClassName={"active"}
+                  />
                 </div>
               </div>
 
