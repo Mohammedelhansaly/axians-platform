@@ -247,8 +247,8 @@ const ListEquipement = () => {
                                                 </thead>
                                                 <tbody>
                                                     {
-                                                        records?.length > 0 ?
-                                                            records.map((e, i) => {
+                                                        currentItem?.length > 0 ?
+                                                            currentItem.map((e, i) => {
                                                                 return (
                                                                     <tr key={i}>
                                                                         <td>{e.reference}</td>
