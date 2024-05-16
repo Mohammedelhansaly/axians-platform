@@ -175,7 +175,7 @@ const ListeProject = () => {
                                   <p>créé en</p>
                                 </div>
                                 <div className="count">
-                                  <h5>{e.equipements.length}</h5>
+                                  <h5>{convertTo(e.equipements.length)}</h5>
                                   <p>Total Equipements</p>
                                 </div>
                               </div>
